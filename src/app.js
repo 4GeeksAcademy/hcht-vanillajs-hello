@@ -39,7 +39,7 @@ window.onload = function () {
 
   // listado de los deportes que practica la familia (no importa si se repiten)
   function lisrAllSportsFamily(anFamily) {
-    var result = [];
+    var result = '';
     for (const key in anFamily) {
         // Opción 1
         // console.log('anFamily', key, anFamily[key].sports)
@@ -48,12 +48,27 @@ window.onload = function () {
         // console.log('element', key, element.sports);
         for (const key in element.sports) {
             const item = element.sports[key];
-            console.log(item)
-            result.push(item)
+            // console.log(item)
+            // result.push(item)
+            result += '<li class="list-group-item">' + item + '</li>'
         }
     }
     return result
   }
+
+  let miTitulo = document.querySelector("#title");
+  miTitulo.innerHTML = 'Por lo que queramos!';
+
+  let miParrafo = document.querySelector('#parrafo');
+  miParrafo.innerHTML = 'Alert amarillo';
+
+  let miFoother = document.querySelector('#foother');
+  miFoother.innerHTML = 'Con mucho amor de la cohorte Spain 44';
+
+  let miLista = document.querySelector('#listaSports');
+  // miLista.innerHTML = '<li class="list-group-item">running</li><li class="list-group-item">cricket</li><li class="list-group-item">soccer</li>'
+  miLista.innerHTML = lisrAllSportsFamily(family.members)
+
 
   console.log(lisrAllSportsFamily(family.members));
 
