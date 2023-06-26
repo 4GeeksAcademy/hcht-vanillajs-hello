@@ -5,72 +5,37 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-window.onload = function () {
+window.onload = function principal() {
   // Write your code here
-
-  var person1 = {
-    name: 'Jhon',
-    lastname: 'Doe',
-    gender: 'male',
-    age: 35,
-    sports: ['golf', 'basketball']
-  }
-
-  var person2 = {
-    name: 'Jane',
-    lastname: 'Doe',
-    gender: 'female',
-    age: 30,
-    sports: ['soccer', 'tennis', 'running']
-  }
-
-  var person3 = {
-    name: 'Jimmy',
-    lastname: 'Doe',
-    gender: 'male',
-    age: 12,
-    sports: ['rugby', 'soccer', 'cricket']
-  }
-
-  var family = {
-    lastname: 'Doe',
-    members: [person1, person2, person3]
-  }
-
-  // listado de los deportes que practica la familia (no importa si se repiten)
-  function lisrAllSportsFamily(anFamily) {
-    var result = '';
-    for (const key in anFamily) {
-        // Opción 1
-        // console.log('anFamily', key, anFamily[key].sports)
-        // Opción 2
-        const element = anFamily[key];
-        // console.log('element', key, element.sports);
-        for (const key in element.sports) {
-            const item = element.sports[key];
-            // console.log(item)
-            // result.push(item)
-            result += '<li class="list-group-item">' + item + '</li>'
-        }
-    }
-    return result
-  }
-
   let miTitulo = document.querySelector("#title");
-  miTitulo.innerHTML = 'Por lo que queramos!';
+  miTitulo.innerHTML = 'Random Card Generator';
+  document.querySelector('#foother').innerHTML = 'Con mucho  ❤️  para la cohorte Spain-44';
 
-  let miParrafo = document.querySelector('#parrafo');
-  miParrafo.innerHTML = 'Alert amarillo';
+  let suit = ['♦', '♥', '♠', '♣'];
+  let numbers = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 
-  let miFoother = document.querySelector('#foother');
-  miFoother.innerHTML = 'Con mucho amor de la cohorte Spain 44';
+  let indexSuit = Math.floor(Math.random() * suit.length);
+  let indexNumbers = Math.floor(Math.random() * numbers.length);
+  
+  let classBG = '';
+  (suit[indexSuit] == '♦' || suit[indexSuit] == '♥' ) ? classBG = "leter-red" : classBG = "leter-black";
 
-  let miLista = document.querySelector('#listaSports');
-  // miLista.innerHTML = '<li class="list-group-item">running</li><li class="list-group-item">cricket</li><li class="list-group-item">soccer</li>'
-  miLista.innerHTML = lisrAllSportsFamily(family.members)
+  let suitTop = document.querySelector(".top")
+  let suitEnd = document.querySelector(".end")
+  let numberCard = document.querySelector(".number")
 
+  suitTop.innerHTML = suit[indexSuit]
+  suitEnd.innerHTML = suit[indexSuit]
+  numberCard.innerHTML = numbers[indexNumbers]
 
-  console.log(lisrAllSportsFamily(family.members));
+  let currentClass = suitTop.classList[1]
+  suitTop.classList.remove(currentClass)
+  suitTop.classList.add(classBG)
+  suitEnd.classList.remove(currentClass)
+  suitEnd.classList.add(classBG)
+  numberCard.classList.remove(currentClass)
+  numberCard.classList.add(classBG)
 
   console.log("Hello Rigo from the console!");
 };
+
