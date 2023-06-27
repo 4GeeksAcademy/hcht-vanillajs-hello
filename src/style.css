@@ -5,10 +5,11 @@ body {
     color: antiquewhite;
 }
 
-.card {
+.my-card {
     background-color: white;
     color: black;
-    font-size: xx-large;
+    font-size: 45px; 
+    font-family: serif;
 }
 
 .leter-red {
@@ -17,4 +18,8 @@ body {
 
 .leter-black {
     color: black;
+}
+
+.end {
+    transform: rotate(180deg)
 }
